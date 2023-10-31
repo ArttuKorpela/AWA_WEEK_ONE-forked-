@@ -10,9 +10,12 @@ if (document.readyState !== "loading") {
 
 function initializeCode() {
   document.getElementById("app").innerHTML = "<h1>Hello!</h1>";
+  for (let i = 0; i < 5; i++) {
+    appendChild();
+  }
 }
 
-function createElement(){
+function createElement() {
   let wikiItem = document.createElement("div");
 
   wikiItem.innerHTML = `
@@ -32,16 +35,9 @@ function createElement(){
 }
 
 function appendChild() {
-  
   let item = createElement();
-  
 
   const tBody = document.getElementById("app");
 
-  tBody.appendChild(item)
-
-}
-
-for (let i = 0; i<5; i++){
-  appendChild();
+  tBody.append(item);
 }

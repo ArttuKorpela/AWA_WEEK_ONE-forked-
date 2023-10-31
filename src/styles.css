@@ -2,6 +2,23 @@ body {
   font-family: sans-serif;
 }
 
+@media only screen and (min-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+
+  .wiki-content {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .wiki-text {
+    width: 50%;
+  }
+  .image-container {
+    width: 50%;
+  }
+}
+
 .wiki-img {
   width: 100%;
   height: auto;
@@ -21,6 +38,11 @@ body {
 h1 {
   text-align: center;
   padding: 10px 10px 10px 10px;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 /*

@@ -35,8 +35,16 @@ async function createElement(breed) {
   wikiItem.className = "wiki-item";
 
   let imgElement = wikiItem.querySelector(".wiki-img");
+  let head = wikiItem.querySelector(".wiki-header");
+  let text = wikiItem.querySelector(".wiki-text");
+  head.textContent = firstLetterUpperCase(breed);
   imgElement.src = await getDogImage(breed);
+  text.textContent = await getDogText(breed);
   return wikiItem;
+}
+
+function firstLetterUpperCase(breed) {
+  return breed[0].toUpperCase() + breed.slice(1);
 }
 
 async function appendChild(breed) {
@@ -53,4 +61,14 @@ async function getDogImage(breed) {
   const dogpicsJson = await response.json();
 
   return dogpicsJson.message;
+}
+
+async function getDogText(breed) {
+  let BREED = firstLetterUpperCase(breed);
+  const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${BREED}`;
+  const response = await fetch(url);
+  const textJson = await response.json();
+
+  console.log(textJson.extract);
+  return textJson.extract;
 }

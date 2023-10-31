@@ -11,7 +11,7 @@ body {
     display: flex;
     flex-direction: row-reverse;
   }
-  .wiki-text {
+  p.wiki-text {
     width: 50%;
   }
   .image-container {

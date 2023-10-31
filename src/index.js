@@ -1,6 +1,5 @@
 //import "./styles.css";
 
-
 if (document.readyState !== "loading") {
   initializeCode();
 } else {
@@ -10,13 +9,15 @@ if (document.readyState !== "loading") {
 }
 
 function initializeCode() {
+  let doglist = ["hound", "corgi", "beagle", "bulldog", "akita"];
+
   document.getElementById("app").innerHTML = "<h1>Hello!</h1>";
-  for (let i = 0; i < 5; i++) {
-    appendChild();
-  }
+  doglist.forEach((element) => {
+    appendChild(element);
+  });
 }
 
-function createElement() {
+async function createElement(breed) {
   let wikiItem = document.createElement("div");
 
   wikiItem.innerHTML = `
@@ -32,13 +33,24 @@ function createElement() {
   `;
 
   wikiItem.className = "wiki-item";
+
+  let imgElement = wikiItem.querySelector(".wiki-img");
+  imgElement.src = await getDogImage(breed);
   return wikiItem;
 }
 
-function appendChild() {
-  let item = createElement();
+async function appendChild(breed) {
+  let item = await createElement(breed);
 
   const tBody = document.getElementById("app");
 
   tBody.append(item);
+}
+
+async function getDogImage(breed) {
+  const url = "https://dog.ceo/api/breed/" + breed + "/images/random";
+  const response = await fetch(url);
+  const dogpicsJson = await response.json();
+
+  return dogpicsJson.message;
 }

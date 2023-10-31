@@ -1,3 +1,31 @@
 body {
   font-family: sans-serif;
 }
+
+.wiki-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.wiki-item {
+  margin-left: 10px;
+  margin-right: 10px;
+  box-shadow: 10px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.wiki-content {
+  padding: 10px 10px 10px 10px;
+}
+
+h1 {
+  text-align: center;
+  padding: 10px 10px 10px 10px;
+}
+
+/*
+Add some margin for the wiki-item, 
+so that it would have empty space on right and left 
+(margin-right and margin-left should be something else than 0px).
+For example, 10px should be fine
+*/

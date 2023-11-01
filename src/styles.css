@@ -12,10 +12,10 @@ body {
     flex-direction: row-reverse;
   }
   .wiki-text {
-    max-width: 50%;
+    min-width: 50%;
   }
   .image-container {
-    max-width: 50%;
+    min-width: 50%;
   }
 }
 

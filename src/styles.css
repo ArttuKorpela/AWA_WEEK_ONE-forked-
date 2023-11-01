@@ -13,9 +13,11 @@ body {
   }
   .wiki-text {
     min-width: 50%;
+    max-width: 50%;
   }
   .image-container {
     min-width: 50%;
+    max-width: 50%;
   }
 }
 
